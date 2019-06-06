@@ -1,0 +1,512 @@
+{
+  "city": {
+    "\u5317\u4eac": {
+      "code": "beijing",
+      "city_id": 2
+    },
+    "\u4e0a\u6d77": {
+      "code": "shanghai",
+      "city_id": 1
+    },
+    "\u5e7f\u5dde": {
+      "code": "guangzhou",
+      "city_id": 4
+    },
+    "\u6df1\u5733": {
+      "code": "shenzhen",
+      "city_id": 7
+    },
+    "\u5929\u6d25": {
+      "code": "tianjin",
+      "city_id": 10
+    },
+    "\u676d\u5dde": {
+      "code": "hangzhou",
+      "city_id": 3
+    },
+    "\u5357\u4eac": {
+      "code": "nanjing",
+      "city_id": 5
+    },
+    "\u82cf\u5dde": {
+      "code": "suzhou",
+      "city_id": 6
+    },
+    "\u6210\u90fd": {
+      "code": "chengdu",
+      "city_id": 8
+    },
+    "\u6b66\u6c49": {
+      "code": "wuhan",
+      "city_id": 16
+    },
+    "\u91cd\u5e86": {
+      "code": "chongqing",
+      "city_id": 9
+    },
+    "\u897f\u5b89": {
+      "code": "xian",
+      "city_id": 17
+    },
+    "\u978d\u5c71": {
+      "code": "anshan",
+      "city_id": 58
+    },
+    "\u5b89\u5e86": {
+      "code": "anqing",
+      "city_id": 117
+    },
+    "\u5b89\u9633": {
+      "code": "anyang",
+      "city_id": 164
+    },
+    "\u4fdd\u5b9a": {
+      "code": "baoding",
+      "city_id": 29
+    },
+    "\u5305\u5934": {
+      "code": "baotou",
+      "city_id": 47
+    },
+    "\u957f\u6625": {
+      "code": "changchun",
+      "city_id": 70
+    },
+    "\u957f\u6c99": {
+      "code": "changsha",
+      "city_id": 344
+    },
+    "\u627f\u5fb7": {
+      "code": "chengde",
+      "city_id": 31
+    },
+    "\u6ca7\u5dde": {
+      "code": "cangzhou",
+      "city_id": 32
+    },
+    "\u957f\u6cbb": {
+      "code": "changzhi",
+      "city_id": 38
+    },
+    "\u8d64\u5cf0": {
+      "code": "chifeng",
+      "city_id": 49
+    },
+    "\u798f\u5dde": {
+      "code": "fuzhou",
+      "city_id": 14
+    },
+    "\u4f5b\u5c71": {
+      "code": "foshan",
+      "city_id": 208
+    },
+    "\u629a\u987a": {
+      "code": "fushun",
+      "city_id": 59
+    },
+    "\u671d\u9633": {
+      "code": "zhaoyang",
+      "city_id": 68
+    },
+    "\u5e38\u5dde": {
+      "code": "changzhou",
+      "city_id": 93
+    },
+    "\u6ec1\u5dde": {
+      "code": "chuzhou",
+      "city_id": 119
+    },
+    "\u5de2\u6e56": {
+      "code": "chaohu",
+      "city_id": 122
+    },
+    "\u6c60\u5dde": {
+      "code": "chizhou",
+      "city_id": 125
+    },
+    "\u5e38\u5fb7": {
+      "code": "changde",
+      "city_id": 197
+    },
+    "\u5927\u8fde": {
+      "code": "dalian",
+      "city_id": 19
+    },
+    "\u4e1c\u839e": {
+      "code": "dongguan",
+      "city_id": 219
+    },
+    "\u5927\u540c": {
+      "code": "datong",
+      "city_id": 36
+    },
+    "\u4e39\u4e1c": {
+      "code": "dandong",
+      "city_id": 61
+    },
+    "\u5927\u5e86": {
+      "code": "daqing",
+      "city_id": 84
+    },
+    "\u5927\u5174\u5b89\u5cad": {
+      "code": "daxinganling",
+      "city_id": 91
+    },
+    "\u9102\u5c14\u591a\u65af": {
+      "code": "eerduosi",
+      "city_id": 51
+    },
+    "\u9102\u5dde": {
+      "code": "ezhou",
+      "city_id": 181
+    },
+    "\u6069\u65bd": {
+      "code": "enshi",
+      "city_id": 188
+    },
+    "\u8d35\u9633": {
+      "code": "guiyang",
+      "city_id": 258
+    },
+    "\u8d63\u5dde": {
+      "code": "ganzhou",
+      "city_id": 140
+    },
+    "\u6842\u6797": {
+      "code": "guilin",
+      "city_id": 226
+    },
+    "\u6d77\u53e3": {
+      "code": "haikou",
+      "city_id": 23
+    },
+    "\u54c8\u5c14\u6ee8": {
+      "code": "haerbin",
+      "city_id": 79
+    },
+    "\u5408\u80a5": {
+      "code": "hefei",
+      "city_id": 110
+    },
+    "\u547c\u548c\u6d69\u7279": {
+      "code": "huhehaote",
+      "city_id": 46
+    },
+    "\u90af\u90f8": {
+      "code": "handan",
+      "city_id": 27
+    },
+    "\u8861\u6c34": {
+      "code": "hengshui",
+      "city_id": 34
+    },
+    "\u846b\u82a6\u5c9b": {
+      "code": "huludao",
+      "city_id": 69
+    },
+    "\u547c\u4f26\u8d1d\u5c14": {
+      "code": "hulunbeier",
+      "city_id": 52
+    },
+    "\u6d4e\u5357": {
+      "code": "jinan",
+      "city_id": 22
+    },
+    "\u664b\u57ce": {
+      "code": "jincheng",
+      "city_id": 39
+    },
+    "\u664b\u4e2d": {
+      "code": "jinzhong",
+      "city_id": 41
+    },
+    "\u9526\u5dde": {
+      "code": "jinzhou",
+      "city_id": 62
+    },
+    "\u5409\u6797": {
+      "code": "jilin",
+      "city_id": 71
+    },
+    "\u9e21\u897f": {
+      "code": "jixi",
+      "city_id": 81
+    },
+    "\u4f73\u6728\u65af": {
+      "code": "jiamusi",
+      "city_id": 86
+    },
+    "\u6606\u660e": {
+      "code": "kunming",
+      "city_id": 267
+    },
+    "\u5f00\u5c01": {
+      "code": "kaifeng",
+      "city_id": 161
+    },
+    "\u5eb7\u5b9a": {
+      "code": "kangding",
+      "city_id": 383
+    },
+    "\u7261\u4e39\u6c5f": {
+      "code": "mudanjiang",
+      "city_id": 88
+    },
+    "\u9a6c\u978d\u5c71": {
+      "code": "maanshan",
+      "city_id": 114
+    },
+    "\u8302\u540d": {
+      "code": "maoming",
+      "city_id": 211
+    },
+    "\u6885\u5dde": {
+      "code": "meizhou",
+      "city_id": 214
+    },
+    "\u7ef5\u9633": {
+      "code": "mianyang",
+      "city_id": 242
+    },
+    "\u7709\u5c71": {
+      "code": "meishan",
+      "city_id": 248
+    },
+    "\u5b81\u6ce2": {
+      "code": "ningbo",
+      "city_id": 11
+    },
+    "\u5357\u660c": {
+      "code": "nanchang",
+      "city_id": 134
+    },
+    "\u5357\u5b81": {
+      "code": "nanning",
+      "city_id": 224
+    },
+    "\u5357\u901a": {
+      "code": "nantong",
+      "city_id": 94
+    },
+    "\u5357\u5e73": {
+      "code": "nanping",
+      "city_id": 131
+    },
+    "\u5b81\u5fb7": {
+      "code": "ningde",
+      "city_id": 133
+    },
+    "\u76d8\u9526": {
+      "code": "panjin",
+      "city_id": 66
+    },
+    "\u8386\u7530": {
+      "code": "putian",
+      "city_id": 127
+    },
+    "\u840d\u4e61": {
+      "code": "pingxiang",
+      "city_id": 136
+    },
+    "\u5e73\u9876\u5c71": {
+      "code": "pingdingshan",
+      "city_id": 163
+    },
+    "\u6fee\u9633": {
+      "code": "puyang",
+      "city_id": 168
+    },
+    "\u6500\u679d\u82b1": {
+      "code": "panzhihua",
+      "city_id": 239
+    },
+    "\u9752\u5c9b": {
+      "code": "qingdao",
+      "city_id": 21
+    },
+    "\u79e6\u7687\u5c9b": {
+      "code": "qinhuangdao",
+      "city_id": 26
+    },
+    "\u9f50\u9f50\u54c8\u5c14": {
+      "code": "qiqihaer",
+      "city_id": 80
+    },
+    "\u4e03\u53f0\u6cb3": {
+      "code": "qitaihe",
+      "city_id": 87
+    },
+    "\u8862\u5dde": {
+      "code": "quzhou",
+      "city_id": 106
+    },
+    "\u6cc9\u5dde": {
+      "code": "quanzhou",
+      "city_id": 129
+    },
+    "\u65e5\u7167": {
+      "code": "rizhao",
+      "city_id": 153
+    },
+    "\u65e5\u5580\u5219": {
+      "code": "rikazediqu",
+      "city_id": 286
+    },
+    "\u9976\u9633": {
+      "code": "raoyang",
+      "city_id": 523
+    },
+    "\u4efb\u4e18": {
+      "code": "renqiu",
+      "city_id": 529
+    },
+    "\u4efb\u53bf": {
+      "code": "renxian",
+      "city_id": 549
+    },
+    "\u6c88\u9633": {
+      "code": "shenyang",
+      "city_id": 18
+    },
+    "\u77f3\u5bb6\u5e84": {
+      "code": "shijiazhuang",
+      "city_id": 24
+    },
+    "\u6714\u5dde": {
+      "code": "shuozhou",
+      "city_id": 40
+    },
+    "\u592a\u539f": {
+      "code": "taiyuan",
+      "city_id": 35
+    },
+    "\u5510\u5c71": {
+      "code": "tangshan",
+      "city_id": 25
+    },
+    "\u901a\u8fbd": {
+      "code": "tongliao",
+      "city_id": 50
+    },
+    "\u94c1\u5cad": {
+      "code": "tieling",
+      "city_id": 67
+    },
+    "\u901a\u5316": {
+      "code": "tonghua",
+      "city_id": 74
+    },
+    "\u6cf0\u5dde": {
+      "code": "taizhou",
+      "city_id": 99
+    },
+    "\u65e0\u9521": {
+      "code": "wuxi",
+      "city_id": 13
+    },
+    "\u4e4c\u6d77": {
+      "code": "wuhai",
+      "city_id": 48
+    },
+    "\u4e4c\u5170\u5bdf\u5e03": {
+      "code": "wulanchabu",
+      "city_id": 55
+    },
+    "\u6e29\u5dde": {
+      "code": "wenzhou",
+      "city_id": 101
+    },
+    "\u829c\u6e56": {
+      "code": "wuhu",
+      "city_id": 111
+    },
+    "\u6f4d\u574a": {
+      "code": "weifang",
+      "city_id": 149
+    },
+    "\u5a01\u6d77": {
+      "code": "weihai",
+      "city_id": 152
+    },
+    "\u68a7\u5dde": {
+      "code": "wuzhou",
+      "city_id": 227
+    },
+    "\u897f\u5b81": {
+      "code": "xining",
+      "city_id": 313
+    },
+    "\u90a2\u53f0": {
+      "code": "xingtai",
+      "city_id": 28
+    },
+    "\u5ffb\u5dde": {
+      "code": "xinzhou",
+      "city_id": 43
+    },
+    "\u626c\u5dde": {
+      "code": "yangzhou",
+      "city_id": 12
+    },
+    "\u9633\u6cc9": {
+      "code": "yangquan",
+      "city_id": 37
+    },
+    "\u8fd0\u57ce": {
+      "code": "yuncheng",
+      "city_id": 42
+    },
+    "\u90d1\u5dde": {
+      "code": "zhengzhou",
+      "city_id": 160
+    },
+    "\u73e0\u6d77": {
+      "code": "zhuhai",
+      "city_id": 206
+    },
+    "\u5f20\u5bb6\u53e3": {
+      "code": "zhangjiakou",
+      "city_id": 30
+    },
+    "\u9547\u6c5f": {
+      "code": "zhenjiang",
+      "city_id": 98
+    },
+    "\u821f\u5c71": {
+      "code": "zhoushan",
+      "city_id": 107
+    },
+    "\u6f33\u5dde": {
+      "code": "zhangzhou",
+      "city_id": 130
+    },
+    "\u6dc4\u535a": {
+      "code": "zibo",
+      "city_id": 145
+    },
+    "\u67a3\u5e84": {
+      "code": "zaozhuang",
+      "city_id": 146
+    },
+    "\u5468\u53e3": {
+      "code": "zhoukou",
+      "city_id": 175
+    },
+    "\u9a7b\u9a6c\u5e97": {
+      "code": "zhumadian",
+      "city_id": 176
+    },
+    "\u682a\u6d32": {
+      "code": "zhuzhou",
+      "city_id": 192
+    },
+    "\u5f20\u5bb6\u754c": {
+      "code": "zhangjiajie",
+      "city_id": 198
+    },
+    "\u6e5b\u6c5f": {
+      "code": "zhanjiang",
+      "city_id": 210
+    }
+  }
+}

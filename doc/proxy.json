@@ -1,0 +1,50 @@
+{
+    "Data": [
+        {
+            "id": 0,
+            "Ip": "60.191.57.78",
+            "Port": 12580,
+            "IPUserName": "",
+            "IPPassword": "",
+            "IPlifetime": "2019-06-05T23:22:00.6686672+08:00",
+            "TestCycle": 0,
+            "Country": "",
+            "FullAddress": "广东省汕尾市 电信",
+            "ProxyType": -1,
+            "Speed": -1,
+            "AnonymousType": -1,
+            "AddTime": "2019-06-05T23:18:50.6686672+08:00",
+            "TestTime": "2019-06-05T23:18:50.6686672+08:00",
+            "IPSource": "",
+            "ISP": "电信",
+            "Remarks": "出口IP:119.134.227.11:12580",
+            "OrderNumberID": 0
+        },
+        {
+            "id": 1,
+            "Ip": "60.191.57.78",
+            "Port": 14096,
+            "IPUserName": "",
+            "IPPassword": "",
+            "IPlifetime": "2019-06-05T23:22:00.6686672+08:00",
+            "TestCycle": 0,
+            "Country": "",
+            "FullAddress": "广东省汕尾市 电信",
+            "ProxyType": -1,
+            "Speed": -1,
+            "AnonymousType": -1,
+            "AddTime": "2019-06-05T23:18:50.6686672+08:00",
+            "TestTime": "2019-06-05T23:18:50.6686672+08:00",
+            "IPSource": "",
+            "ISP": "电信",
+            "Remarks": "出口IP:113.82.236.130:14096",
+            "OrderNumberID": 0
+        }
+    ],
+    "Code": 0,
+    "Success": true,
+    "Message": "成功",
+    "LeftIp": "998",
+    "LeftTime": "86103",
+    "QTY": 2
+}
