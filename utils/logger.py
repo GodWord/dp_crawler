@@ -67,7 +67,17 @@ LOGGING = {
             'maxBytes': 1024 * 1024 * 100,  # 文件大小 100M
             'backupCount': 10,  # 备份份数
             'encoding': 'utf8',  # 文件编码
-        }
+        },
+        # 输出到文件
+        'comment': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',  # ConcurrentRotatingFileHandler
+            'formatter': 'standard',
+            'filename': os.path.join(LOG_PATH, 'comment.log'),  # 输出位置
+            'maxBytes': 1024 * 1024 * 100,  # 文件大小 100M
+            'backupCount': 10,  # 备份份数
+            'encoding': 'utf8',  # 文件编码
+        },
 
     },
 
@@ -81,6 +91,11 @@ LOGGING = {
         },
         'proxy': {
             'handlers': ['console', 'all', 'error', 'proxy'],
+            'level': logging.DEBUG,
+            'propagate': True,  # 是否传递给父记录器
+        },
+        'comment': {
+            'handlers': ['console', 'all', 'error', 'comment'],
             'level': logging.DEBUG,
             'propagate': True,  # 是否传递给父记录器
         },

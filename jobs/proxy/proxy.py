@@ -1,18 +1,16 @@
 # -*- coding:utf-8 -*-
-import time
-
-from setting.config import PROXIES_CONFIG, PROXY_DB
-
 __author__ = 'zhoujifeng'
 __date__ = '2019/6/5 19:59'
 
 import logging
+import time
 from logging.config import dictConfig
 
 import requests
 
-from utils.logger import LOGGING
+from setting.config import PROXIES_CONFIG, PROXY_DB
 from utils.catch_utils import CatchUtils
+from utils.logger import LOGGING
 from utils.redis_utils import RedisUtils
 
 logger = logging.getLogger('proxy')
@@ -20,7 +18,7 @@ logger = logging.getLogger('proxy')
 
 class Proxy:
     def __init__(self, api_url, pool_size, time_out, redis_key, redis_db, batch=200, redis_label='default'):
-        logger.info('[Proxy]开始初始化')
+        logger.info('[Proxy]开始初始化......')
         self.__api_url = api_url
         self.__pool_size = pool_size
         self.__time_out = time_out
@@ -33,14 +31,15 @@ class Proxy:
 
     def server(self):
         while True:
-            size = self.catch.llen(self.__proxy_key)
-            logger.info('当前代理池长度为:%d' % (size,))
+            logger.info('代理池维护服务开始运行...')
+            db_size = self.catch.dbsize()
+            logger.info('当前代理池长度为:%d' % (db_size,))
 
-            if size >= self.__pool_size:
+            if db_size >= self.__pool_size:
                 logger.info('代理池不需要更新,休眠1秒')
                 time.sleep(1)
                 continue
-            diff_size = self.__pool_size - size
+            diff_size = self.__pool_size - db_size
             while diff_size > 0:
                 if diff_size < self.__batch:
                     length = diff_size
@@ -49,7 +48,7 @@ class Proxy:
 
                 data = self.get(length)
                 if data:
-                    self.lpush(data)
+                    self.set(data)
                     diff_size -= 200
 
     def __init_session__(self):
@@ -66,20 +65,23 @@ class Proxy:
             req = self.__session.get(url)
             logger.info('开始请求:[%s]' % (req.url,))
             req.raise_for_status()
-            return req.json()
+            data = req.json()
+            req.close()
+            return data
 
         except Exception as e:
             logger.error(e)
             return None
 
-    def hmset(self, data):
+    def set(self, data):
         """
         向redis中添加代理ip
         :param data:
         :return:
         """
-        proxies_list = list(map(lambda x: '%(Ip)s:%(Port)s' % x, data['Data']))
-        self.catch.lpush(self.__proxy_key, proxies_list, self.__time_out)
+        proxies_dict = dict(map(lambda x: ['%(Ip)s:%(Port)s' % x, x['IPlifetime']], data['Data']))
+        self.catch.mset(proxies_dict, timeout=self.__time_out)
+        # list(map(lambda x: self.catch.set(key=x[0], value=x[1], timeout=self.__time_out), proxies_dict.items()))
 
     def delete(self, proxy):
         """

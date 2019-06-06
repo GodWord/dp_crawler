@@ -1,6 +1,6 @@
 import aiohttp
 
-from demo.asyncio_func import asyn_func_pool
+from demo.asyncio_func import async_func_pool
 
 
 async def test(id):
@@ -23,4 +23,4 @@ async def except_callback(x):
 
 
 for x in range(100):
-    asyn_func_pool.add_async_func(test, callback, None, x)
+    async_func_pool.add_async_func(test, callback, None, x)

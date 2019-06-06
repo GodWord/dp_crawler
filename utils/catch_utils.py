@@ -16,6 +16,7 @@ class CatchUtils:
     def set(self, key, value, timeout=default_timeout):
         """
         保存缓存
+        :param value:
         :param key:
         :param timeout:
         :return:
@@ -27,6 +28,7 @@ class CatchUtils:
     def lpush(self, key, value, timeout=default_timeout):
         """
         保存缓存
+        :param value:
         :param key:
         :param timeout:
         :return:
@@ -35,16 +37,15 @@ class CatchUtils:
         self.cache.lpush(real_key, *value)
         self.cache.expire(real_key, timeout)
 
-
-    def mset(self, timeout=default_timeout, **kwargs):
+    def mset(self, values: dict, timeout=default_timeout):
         """
         保存缓存
         :param timeout:
         :return:
         """
 
-        self.cache.mset(kwargs)
-        list(map(lambda x: self.cache.expire(x, timeout), kwargs.keys()))
+        self.cache.mset(values)
+        list(map(lambda x: self.cache.expire(x, timeout), values.keys()))
 
     def hset(self, name, key, value, timeout=default_timeout):
         """
@@ -135,6 +136,9 @@ class CatchUtils:
         """
         self.cache.srem(key, member)
 
+    def randomkey(self):
+        return self.cache.randomkey()
+
     def delete(self, key):
         """
         清空缓存的值
@@ -143,3 +147,6 @@ class CatchUtils:
         """
         real_key = self.prefix + key
         return self.cache.delete(real_key)
+
+    def dbsize(self):
+        return self.cache.dbsize()

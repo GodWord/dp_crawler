@@ -1,3 +1,9 @@
+# -*- coding:utf-8 -*-
+__author__ = 'zhoujifeng'
+__date__ = '2019/6/6 15:03'
+__file_name__ = 'http_async_utils'
+__project_name__ = 'dp_crawler' 
+
 import asyncio
 from threading import Thread
 
