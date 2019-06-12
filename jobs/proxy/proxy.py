@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+from datetime import datetime
+
 __author__ = 'zhoujifeng'
 __date__ = '2019/6/5 19:59'
 
@@ -17,15 +19,15 @@ logger = logging.getLogger('proxy')
 
 
 class Proxy:
-    def __init__(self, api_url, pool_size, time_out, redis_key, redis_db, batch=200, redis_label='default'):
+    def __init__(self, api_url, pool_size, time_out, redis_db, sleep, batch, redis_label='default'):
         logger.info('[Proxy]开始初始化......')
         self.__api_url = api_url
         self.__pool_size = pool_size
         self.__time_out = time_out
-        self.__proxy_key = redis_key
         self.__batch = batch
         self.__session = requests.Session()
         self.__init_session__()
+        self.sleep = sleep
 
         self.catch = CatchUtils(RedisUtils.get_pool_by_label(redis_label, redis_db))
 
@@ -44,12 +46,14 @@ class Proxy:
                 if diff_size < self.__batch:
                     length = diff_size
                 else:
-                    length = 200
+                    length = self.__batch
 
                 data = self.get(length)
                 if data:
                     self.set(data)
-                    diff_size -= 200
+                    diff_size -= self.__batch
+                logger.info('开始休眠:%d秒' % (self.sleep,))
+                time.sleep(self.sleep)
 
     def __init_session__(self):
         logger.info('[requests]开始初始化')
@@ -79,7 +83,7 @@ class Proxy:
         :param data:
         :return:
         """
-        proxies_dict = dict(map(lambda x: ['%(Ip)s:%(Port)s' % x, x['IPlifetime']], data['Data']))
+        proxies_dict = dict(map(lambda x: ['%(ip)s:%(port)s' % x, str(datetime.now())], data['proxy']))
         self.catch.mset(proxies_dict, timeout=self.__time_out)
         # list(map(lambda x: self.catch.set(key=x[0], value=x[1], timeout=self.__time_out), proxies_dict.items()))
 

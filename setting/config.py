@@ -16,11 +16,11 @@ PROXIES_CONFIG = {
     # 3分钟代理包量
     # 'api': 'http://www.uu-ip.com/Tools/proxyIP.ashx?OrderNumber=89fd564c5f97be2ed3c4d6dd0af0384b&poolIndex=77091&cache=1&qty={}',
     # 包天代理
-    'api_url': 'http://www.uu-ip.com/Tools/proxyIP.ashx?OrderNumber=89fd564c5f97be2ed3c4d6dd0af088b&poolIndex=75081&cache=1&Split=JSON2&qty={}',
-    'pool_size': 2,  # 代理池大小
+    'api_url': 'http://ip.16yun.cn:817/myip/pl/ade5ab46-744e-4f9a-acb3-bd7a81800ee9/?s=klmsvuqkyt&u=vfenger&format=json&count={}',
+    'pool_size': 50,  # 代理池大小
     'time_out': 3 * 60,  # 代理ip超时时间
-    'batch': 200,  # 接口最大请求数量
-    'redis_key': 'proxy_cache'  # redis中代理池的key
+    'batch': 5,  # 接口最大请求数量
+    'sleep': 10  # 休眠时间,单位(秒)
 }
 REDIS_CONN = {
     'default': lambda n: redis.Redis(
