@@ -3,7 +3,6 @@ import json
 import os
 import re
 
-from apps.dp_shop.models import Shop
 from setting.config import BASE_DIR
 from utils.CrawlerUtils import CrawlerUtils
 
@@ -120,12 +119,7 @@ class DPUtils:
         prefix = __deal(class_list)
         return prefix
 
-    @staticmethod
-    def get_shop_ids():
-        session = NewDynamicModel.get_session()
-        shop_ids = session.query(Shop.shop_id, Shop.city).filter(Shop.stars >= 35).all()
 
-        return shop_ids
 
     @staticmethod
     def get_cookies(city, type=0):

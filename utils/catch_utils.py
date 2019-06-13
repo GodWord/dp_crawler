@@ -152,6 +152,22 @@ class CatchUtils:
         return self.cache.dbsize()
 
     def hexists(self, name, key):
+        """
+        返回hash里面field是否存在
+        :param name:
+        :param key:
+        :return:
+        """
         real_name = self.prefix + name
 
         return self.cache.hexists(real_name, key)
+
+    def exists(self, key):
+        """
+        返回key是否存在。
+        :param key:
+        :return:
+        """
+        real_key = self.prefix + key
+
+        return self.cache.exists(real_key)

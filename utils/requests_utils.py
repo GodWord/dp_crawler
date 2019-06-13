@@ -27,7 +27,6 @@ class RequestsUtils:
         self.session = requests.Session()
         self.session.keep_alive = False  # 关闭多余连接
         self.headers = {
-            "Cookie": "cy=9; cye=chongqing; _lxsdk_cuid=16990dc041dc8-03950f45647727-7a1b34-2a3000-16990dc041dc8; _lxsdk=16990dc041dc8-03950f45647727-7a1b34-2a3000-16990dc041dc8; _hc.v=5b583263-7c12-0e9a-9ed1-ade1854ff183.1552913532; lgtoken=06fa50c8e-368e-46bf-bc93-d70de929d862; s_ViewType=10; _lxsdk_s=16990dc041d-8cc-f09-f07%7C%7C82",
             "Proxy-Connection": "close",
             'Connection': 'close',
         }

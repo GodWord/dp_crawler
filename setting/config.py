@@ -34,3 +34,4 @@ ProcessesNum = 16
 DEFAULT_REDIS_TIMEOUT = 60 * 60 * 24
 CACHE_DB = 15  # redis数据缓存库
 PROXY_DB = 0  # redis代理池数据库
+PreferentialRedis = 1  # 优惠活动商家id保存

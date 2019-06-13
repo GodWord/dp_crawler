@@ -19,8 +19,8 @@ headers = {
 
 
 class ProxiesPool:
-    def __init__(self, redis_label, proxy_db, **kwargs):
-        self.proxy_cache = CatchUtils(RedisUtils.get_pool_by_label(redis_label, proxy_db))
+    def __init__(self, redis_db, redis_label='default', **kwargs):
+        self.proxy_cache = CatchUtils(RedisUtils.get_pool_by_label(redis_label, redis_db))
 
     def proxies(self):
         ip = 'http://{}'.format(self.proxy_cache.randomkey())
