@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+__author__ = 'zhoujifeng'
+__date__ = '2019/6/5 19:22'
+
 import logging
 
 import aiohttp
@@ -8,9 +11,6 @@ from utils.file_utils import FileUtils
 from utils.catch_utils import CatchUtils
 from utils.redis_utils import RedisUtils
 from utils.async_func_utils import async_func_pool
-
-__author__ = 'zhoujifeng'
-__date__ = '2019/6/5 19:22'
 
 logger = logging.getLogger('comment')
 
