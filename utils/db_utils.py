@@ -305,7 +305,7 @@ class DBUtils(object):
         if label not in cls._engine_dict.keys():
             database_uri = 'mysql+pymysql://%(user)s:%(password)s@%(host)s:%(port)s/%(db)s?charset=utf8' % \
                            (DATABASES[label])
-            engine = create_engine(database_uri, pool_size=500, pool_recycle=60, echo=False, max_overflow=-1,
+            engine = create_engine(database_uri, pool_size=500, pool_recycle=3600, echo=False, max_overflow=-1,
                                    pool_pre_ping=True, )
             cls._engine_dict[label] = engine
         return cls._engine_dict[label]

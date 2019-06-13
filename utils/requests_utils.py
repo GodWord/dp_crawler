@@ -5,6 +5,8 @@ import random
 from http import client
 from json import JSONDecodeError
 
+from setting.config import PROXIES_CONFIG
+from utils.NewDynamicModel import NewDynamicModel
 from utils.ProxiesPool import ProxiesPool
 
 __author__ = 'zhoujifeng'
@@ -16,15 +18,15 @@ logger = logging.getLogger('http')
 
 
 class RequestsUtils:
-    def __init__(self, proxies_config, cookies_list=None, ):
-        self.cookies_list = cookies_list or list()
-        self.proxies_pool = ProxiesPool(proxies_config)
+    def __init__(self):
+        self.proxies_pool = ProxiesPool(**PROXIES_CONFIG)
+        self.cookies_list = list()
+
         self.last_proxies = dict()
 
         self.session = requests.Session()
         self.session.keep_alive = False  # 关闭多余连接
         self.headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36",
             "Cookie": "cy=9; cye=chongqing; _lxsdk_cuid=16990dc041dc8-03950f45647727-7a1b34-2a3000-16990dc041dc8; _lxsdk=16990dc041dc8-03950f45647727-7a1b34-2a3000-16990dc041dc8; _hc.v=5b583263-7c12-0e9a-9ed1-ade1854ff183.1552913532; lgtoken=06fa50c8e-368e-46bf-bc93-d70de929d862; s_ViewType=10; _lxsdk_s=16990dc041d-8cc-f09-f07%7C%7C82",
             "Proxy-Connection": "close",
             'Connection': 'close',
@@ -104,3 +106,9 @@ class RequestsUtils:
             return random.choice(pc_headers)
         else:
             return random.choice(mobile_headers)
+
+    def set_cookies(self, city):
+        logger.info('城市[%s]开始获取cookie' % (city,))
+        cookies_list = NewDynamicModel.get_cookies(city)
+        logger.info('城市[%s]cookie获取完成，共:[%d]条' % (city, len(cookies_list)))
+        self.cookies_list = cookies_list

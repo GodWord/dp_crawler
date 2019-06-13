@@ -2,13 +2,10 @@
 import logging
 
 import pandas as pd
-from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, scoped_session
 
-from apps.dp_shop.models.cookie import Cookie
-from setting.config import DB_SOURCE
-from utils.DBUtils import DBUtils
+from models.cookie import Cookie
+from utils.db_utils import DBUtils
 
 logger = logging.getLogger('NewDynamicModel')
 
@@ -38,20 +35,6 @@ class NewDynamicModel:
             cls._instance[new_cls_name] = model_cls
 
         return cls._instance[new_cls_name]
-
-    @staticmethod
-    def get_session():
-        """
-        获取数据库session
-        :return:db_session
-        """
-        # 根据setting配置获取session
-        SessionCls = sessionmaker(
-            bind=create_engine(DB_SOURCE['default'], pool_size=1000, pool_recycle=3600, echo=False, max_overflow=-1))
-        New_SessionCls = scoped_session(SessionCls)
-        session = New_SessionCls()
-
-        return session
 
     @classmethod
     def stage_by_cls(cls, base_cls, df: pd.DataFrame, batch=500):
@@ -87,13 +70,12 @@ class NewDynamicModel:
         logger.info('[%s]保存完成' % (base_cls.__name__,))
 
     @staticmethod
-    def save_to_db(model, data, db_session=None):
+    def save_to_db(model, data):
         try:
-            logger.info(data)
             # 获取session
-            if not db_session:
-                db_session = NewDynamicModel.get_session()
+            db_session = DBUtils.get_session_by_model(model)
             # 在session中添加数据
+            logger.info(data)
 
             db_session.bulk_save_objects(map(lambda x: model(**x), data))
             # commit(这里不提交数据库是不会保存的)
@@ -101,23 +83,32 @@ class NewDynamicModel:
         except Exception as e:
             logger.error(e)
             logger.error(data)
+        finally:
+            db_session.close()
 
     @staticmethod
     def update(model, data, field='id'):
         logger.info('开始更新数据')
-        session = NewDynamicModel.get_session()
+        session = DBUtils.get_session_by_model(model)
         if hasattr(model, field):
             list(map(lambda x: session.query(model).filter(getattr(model, field) == x[field]).update(x), data))
             session.commit()
             logger.info('数据更新完成')
         else:
             raise Exception('[%s]没有[%s]属性值' % (model.__name__, field))
+        session.close()
 
     @classmethod
     def get_cookies(cls, city, cookie_type=0):
-        session = cls.get_session()
+        """
+        获取当前地区的cookie
+        :param city: 地区
+        :param cookie_type: cookie类型 0为移动端，1为PC端
+        :return:
+        """
+        session = DBUtils.get_session_by_model(Cookie)
         data = session.query(Cookie.cookie).filter_by(city=city, type=cookie_type).all()
-
+        session.close()
         return list(map(lambda x: x[0], data))
 
     @classmethod
@@ -135,15 +126,16 @@ class NewDynamicModel:
         return tb_name
 
     @classmethod
-    def get_data_by_model(cls, base_cls, fn, session):
-        # db_session = NewDynamicModel.get_session()
-        data = fn(session, base_cls)
+    def get_data_by_model(cls, base_cls, fn):
+        db_session = DBUtils.get_session_by_model(base_cls)
+        data = fn(db_session, base_cls)
+        db_session.close()
         return data
 
     @classmethod
     def build_to_model_by_dataFrame(cls, base_cls, df: pd.DataFrame):
         def inner(data):
-            data = data[1]  # type: pd.Series
+            data = data[1]  # type: pd.DataFrame
             tmp_data = data.to_dict()  # type:dict
             # 把id字段交给 外部控制
             # if 'id' in tmp_data.keys():

@@ -150,3 +150,8 @@ class CatchUtils:
 
     def dbsize(self):
         return self.cache.dbsize()
+
+    def hexists(self, name, key):
+        real_name = self.prefix + name
+
+        return self.cache.hexists(real_name, key)

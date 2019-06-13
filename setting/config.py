@@ -20,7 +20,8 @@ PROXIES_CONFIG = {
     'pool_size': 50,  # 代理池大小
     'time_out': 3 * 60,  # 代理ip超时时间
     'batch': 5,  # 接口最大请求数量
-    'sleep': 10  # 休眠时间,单位(秒)
+    'sleep': 10,  # 休眠时间,单位(秒)
+    'redis_db': 0
 }
 REDIS_CONN = {
     'default': lambda n: redis.Redis(
