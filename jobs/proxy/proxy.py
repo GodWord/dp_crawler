@@ -84,17 +84,12 @@ class Proxy:
         :param data:
         :return:
         """
+        logger.info('开始更新代理ip')
         proxies_dict = dict(map(lambda x: ['%(ip)s:%(port)s' % x, str(datetime.now())], data['proxy']))
         self.catch.mset(proxies_dict, timeout=self.__time_out)
-        # list(map(lambda x: self.catch.set(key=x[0], value=x[1], timeout=self.__time_out), proxies_dict.items()))
+        logger.info('代理ip更新完成')
 
-    def delete(self, proxy):
-        """
-        删除指定代理
-        :param proxy: 待删除代理，一个或多个
-        :return: 从集合中移除元素的个数，不包括不存在的成员
-        """
-        return self.catch.srem(self.__proxy_key, proxy)
+        # list(map(lambda x: self.catch.set(key=x[0], value=x[1], timeout=self.__time_out), proxies_dict.items()))
 
 
 if __name__ == '__main__':
