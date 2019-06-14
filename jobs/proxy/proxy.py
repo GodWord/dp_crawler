@@ -42,18 +42,19 @@ class Proxy:
                 time.sleep(1)
                 continue
             diff_size = self.__pool_size - db_size
-            while diff_size > 0:
-                if diff_size < self.__batch:
-                    length = diff_size
-                else:
-                    length = self.__batch
+            if diff_size <= 0:
+                continue
+            if diff_size < self.__batch:
+                length = diff_size
+            else:
+                length = self.__batch
 
-                data = self.get(length)
-                if data:
-                    self.set(data)
-                    diff_size -= self.__batch
-                logger.info('开始休眠:%d秒' % (self.sleep,))
-                time.sleep(self.sleep)
+            data = self.get(length)
+            if data:
+                self.set(data)
+                diff_size -= self.__batch
+            logger.info('开始休眠:%d秒' % (self.sleep,))
+            time.sleep(self.sleep)
 
     def __init_session__(self):
         logger.info('[requests]开始初始化')
