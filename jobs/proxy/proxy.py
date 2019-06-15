@@ -69,7 +69,7 @@ class Proxy:
             req = self.__session.get(url)
             logger.info('开始请求:[%s]' % (req.url,))
             req.raise_for_status()
-            data = req.json()
+            data = req.text
             req.close()
             return data
 
@@ -83,17 +83,9 @@ class Proxy:
         :param data:
         :return:
         """
-        proxies_dict = dict(map(lambda x: ['%(ip)s:%(port)s' % x, str(datetime.now())], data['proxy']))
+        proxies_dict = dict(map(lambda x: [x, str(datetime.now())], data.split('\n')))
         self.catch.mset(proxies_dict, timeout=self.__time_out)
         # list(map(lambda x: self.catch.set(key=x[0], value=x[1], timeout=self.__time_out), proxies_dict.items()))
-
-    def delete(self, proxy):
-        """
-        删除指定代理
-        :param proxy: 待删除代理，一个或多个
-        :return: 从集合中移除元素的个数，不包括不存在的成员
-        """
-        return self.catch.srem(self.__proxy_key, proxy)
 
 
 if __name__ == '__main__':
