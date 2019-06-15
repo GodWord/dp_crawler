@@ -76,6 +76,7 @@ class Proxy:
 
         except Exception as e:
             logger.error(e)
+            logger.error('代理请求失败')
             return None
 
     def set(self, data):
@@ -85,7 +86,7 @@ class Proxy:
         :return:
         """
         logger.info('开始更新代理ip')
-        proxies_dict = dict(map(lambda x: [x, str(datetime.now())], data.split('\n')))
+        proxies_dict = dict(map(lambda x: [x, str(datetime.now())], data.strip('\r\n').split('\r\n')))
         self.catch.mset(proxies_dict, timeout=self.__time_out)
         logger.info('代理ip更新完成')
 
