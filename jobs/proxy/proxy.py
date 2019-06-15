@@ -53,7 +53,7 @@ class Proxy:
             if data:
                 self.set(data)
                 diff_size -= self.__batch
-            logger.info('开始休眠:%d秒' % (self.sleep,))
+            logger.info('开始休眠:%.2f秒' % (self.sleep,))
             time.sleep(self.sleep)
 
     def __init_session__(self):
